@@ -124,9 +124,9 @@ class ChunkState(IntEnum):
 class HeadersParser:
     def __init__(
         self,
-        max_line_size: int = 8190,
-        max_headers: int = 32768,
-        max_field_size: int = 8190,
+        max_line_size: int = 65536,
+        max_headers: int = 65536,
+        max_field_size: int = 65536,
     ) -> None:
         self.max_line_size = max_line_size
         self.max_headers = max_headers
@@ -221,9 +221,9 @@ class HttpParser(abc.ABC, Generic[_MsgT]):
         protocol: BaseProtocol,
         loop: asyncio.AbstractEventLoop,
         limit: int,
-        max_line_size: int = 819000,
-        max_headers: int = 3276800,
-        max_field_size: int = 819000,
+        max_line_size: int = 65536,
+        max_headers: int = 65536,
+        max_field_size: int = 65536,
         timer: Optional[BaseTimerContext] = None,
         code: Optional[int] = None,
         method: Optional[str] = None,
